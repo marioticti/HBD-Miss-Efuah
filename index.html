@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Happy Birthday Belzie</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;800&family=Satify&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
 <style>
 :root{
   --accent1:#00f6ff;
@@ -49,8 +49,6 @@ body{
   text-align:center;
   position:relative;
   z-index:3;
-  display:none; /* hidden initially */
-  opacity:0;
 }
 
 /* Landing / Intro Modal */
@@ -111,6 +109,360 @@ body{
   60% { transform: scale(1.05); opacity: 1; }
   80% { transform: scale(0.95); }
   100% { transform: scale(1); }
+}
+
+/* Neon HBB heading */
+.hbb-text h1 {
+  font-family:'Playfair Display', serif;
+  font-weight:900;
+  font-size:3rem;
+  color:#fff;
+  line-height:1.2;
+  text-align:center;
+  margin-bottom:8px;
+  border:1px solid rgba(255,255,255,0.25);
+  padding:6px 12px;
+  border-radius:6px;
+  box-shadow:0 0 6px rgba(255,255,255,0.08);
+  display:inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hbb-text h1 span{display:block;}
+.hbb-text h1:hover,.hbb-text h1:active{
+  animation: tinyZoom 0.35s forwards;
+}
+@keyframes tinyZoom{
+  0%{transform: scale(1);}
+  50%{transform: scale(1.015);}
+  100%{transform: scale(1);}
+}
+
+.subline{
+  font-family:'Poppins',sans-serif;
+  font-size:1.2rem;
+  font-weight:600;
+  margin-bottom:18px;
+  color:#ffe6f0;
+}
+
+/* Pictures & Videos vertical column */
+.pictures,.videos{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin:16px auto;
+  width:100%;
+  max-width:360px;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Picture cards */
+.pictures img {
+    border-radius: 18px;
+    width: 96%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    padding: 4px;
+    animation: floatPic 8s ease-in-out infinite alternate;
+}
+
+/* Video cards */
+.video-card {
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:4px;
+    animation: floatVid 10s ease-in-out infinite alternate;
+    transform-origin:center center;
+}
+
+.video-card video {
+    border-radius: 12px;
+    width: 100%;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+}
+
+/* Subtle rotation animation */
+@keyframes floatVid{
+  0%{transform:translateY(0px) rotate(-1deg)}
+  25%{transform:translateY(-2px) rotate(1deg)}
+  50%{transform:translateY(0px) rotate(0deg)}
+  75%{transform:translateY(-2px) rotate(-1deg)}
+  100%{transform:translateY(0px) rotate(0deg)}
+}
+
+/* Buttons note */
+.btn-note {
+  margin:12px auto;
+  padding:12px 16px;
+  width:90%;
+  max-width:360px;
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.85);
+  text-align:center;
+  font-family: 'Poppins', sans-serif;
+  line-height:1.4;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  border:none;
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  animation: floatPic 8s ease-in-out infinite alternate;
+}
+
+.btn-note div{margin:4px 0;}
+
+@keyframes floatPic{0%{transform:translateY(0px)}50%{transform:translateY(-6px)}100%{transform:translateY(0px)}}
+
+/* Speech */
+.speech{
+  font-family:'Satify', cursive;
+  font-size:1.1rem;
+  line-height:1.5;
+  color:rgba(255,255,255,0.95);
+  max-width:540px;
+  margin:12px auto;
+  text-align:left;
+  background: rgba(255,255,255,0.01);
+  backdrop-filter: blur(3px);
+  border-radius:20px;
+  border:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  padding:16px 20px;
+  animation: floatPic 8s ease-in-out infinite alternate;
+}
+
+/* Public figure */
+.public-figure{margin-top:10px;font-size:clamp(13px,3.2vw,16px);}
+.public-figure strong{display:inline-block;font-weight:900;}
+
+/* Footer */
+footer{margin-top:16px;color:rgba(255,255,255,0.95);font-size:13px;}
+
+/* Floating emojis */
+.floating-emoji{
+  position:fixed;
+  font-size:28px;
+  animation:floatEmoji 12s linear infinite;
+  opacity:0.85;
+  pointer-events:none;
+  z-index:0;
+  border:none;
+  border-radius:6px;
+  padding:2px;
+}
+
+@keyframes floatEmoji{0%{transform:translateY(110vh) rotate(0deg);}100%{transform:translateY(-10vh) rotate(360deg);}}
+
+/* Hover effects */
+.pictures img:hover,.pictures img:active,.video-card:hover,.video-card:active{
+  transform:scale(1.03);
+  box-shadow:0 0 18px rgba(255,255,255,0.2),0 0 28px rgba(255,255,255,0.1);
+  transition:transform 0.35s ease, box-shadow 0.4s ease;
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .hbb-text h1{font-size:2.2rem;}
+  .subline{font-size:1rem;}
+  .speech{font-size:1rem;width:95%;}
+}
+
+/* Mute Icon for last video */
+.mute-icon{
+  position:absolute;
+  bottom:8px;
+  right:8px;
+  font-size:22px;
+  color:#fff;
+  cursor:pointer;
+  background: rgba(0,0,0,0.25);
+  padding:4px 6px;
+  border-radius:6px;
+  z-index:10;
+}
+</style>
+</head>
+<body>
+<div class="overlay"></div>
+<div id="emojiContainer"></div>
+
+<!-- Landing / Intro Modal -->
+<div id="introModal">
+  <div id="introContent">
+    <h1>WELCOME BELZIE</h1>
+    <div class="btn-row">
+      <button class="btn ok" id="enterBtn">ENTER 🎉</button>
+      <button class="btn later" id="closeIntroBtn">CLOSE</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- Neon Heading -->
+  <div class="hbb-text">
+    <h1>
+      Happy Birthday<br />
+      <span>💙💛 ISABELLA 💝</span>
+    </h1>
+  </div>
+  <div class="subline">Our one and only Belzie</div>
+
+  <!-- Pictures -->
+  <section class="pictures">
+    <img src="ms1.jpg" alt="ms1" />
+    <img src="ms2.jpg" alt="ms2" />
+    <img src="ms3.jpg" alt="ms3" />
+    <img src="ms4.jpg" alt="ms4" />
+    <img src="ms5.jpg" alt="ms5" />
+  </section>
+
+  <!-- Speech -->
+  <div class="speech">
+    Happy Birthday Belzie! 🎉🎂<br/>
+    I pray you receive all your desires that are in line with the will of God ✨ and that you live to accomplish your purpose on earth 🌍💫<br/><br/>
+    We love you 💛💙
+  </div>
+
+  <!-- Videos -->
+  <section class="videos">
+    <div class="video-card"><video id="v1" playsinline muted loop autoplay><source src="msv1.mp4" type="video/mp4"/></video></div>
+    <div class="video-card"><video id="v2" playsinline muted loop autoplay><source src="msv2.mp4" type="video/mp4"/></video></div>
+    <div class="video-card"><video id="v3" playsinline muted loop autoplay><source src="msv3.mp4" type="video/mp4"/></video></div>
+    <div class="video-card"><video id="v5" playsinline muted loop autoplay><source src="msv5.mp4" type="video/mp4"/></video></div>
+    <div class="video-card"><video id="v6" playsinline muted loop autoplay><source src="msv6.mp4" type="video/mp4"/></video></div>
+    <div class="video-card"><video id="v7" playsinline muted loop autoplay><source src="msv7.mp4" type="video/mp4"/></video>
+      <div class="mute-icon" id="muteBtn">🔇</div>
+    </div>
+    <div class="public-figure">HAPPY BIRTHDAY <strong id="publicTag">PUBLIC FIGURE😂</strong></div>
+  </section>
+
+  <!-- Audio Controls -->
+  <div class="btn-note">
+    <div>
+      <button id="playOriginal">Play Original 🎵</button>
+      <button id="pausePlay">Pause/Play ⏯️</button>
+      <input type="file" id="uploadSong" accept="audio/*"/>
+    </div>
+    <div>
+      <select id="uploadedSongs" style="display:none;"></select>
+    </div>
+  </div>
+
+  <footer>
+    Made with 💙<br/>
+    😎NanaB🫵
+  </footer>
+</div>
+
+<!-- Background audio -->
+<audio id="bgAudio" src="song1.mp3" loop preload="auto"></audio>
+
+<script>
+(function(){
+  const introModal = document.getElementById('introModal');
+  const enterBtn = document.getElementById('enterBtn');
+  const closeIntroBtn = document.getElementById('closeIntroBtn');
+  const bgAudio = document.getElementById('bgAudio');
+  const vids = [
+    document.getElementById('v1'),
+    document.getElementById('v2'),
+    document.getElementById('v3'),
+    document.getElementById('v5'),
+    document.getElementById('v6'),
+    document.getElementById('v7')
+  ];
+  const muteBtn = document.getElementById('muteBtn');
+
+  // Landing page buttons
+  enterBtn.addEventListener('click', () => {
+    introModal.style.display='none';
+    bgAudio.play().catch(()=>{});
+    vids.forEach(v=>v.play().catch(()=>{}));
+  });
+  closeIntroBtn.addEventListener('click', ()=>window.close());
+
+  // Floating emojis
+  const emojis = ['❤️','💛','💙','🎉','🎈','✨','😂','💫'];
+  const container = document.getElementById('emojiContainer');
+  for(let i=0;i<10;i++){
+    const span = document.createElement('div');
+    span.className='floating-emoji';
+    span.textContent=emojis[i];
+    span.style.left=Math.random()*90+'%';
+    span.style.fontSize=(22+Math.random()*14)+'px';
+    span.style.animationDuration=(10+Math.random()*8)+'s';
+    span.style.opacity=0.7+Math.random()*0.3;
+    container.appendChild(span);
+  }
+
+  // Mute/unmute last video
+  const lastVid = document.getElementById('v7');
+  muteBtn.addEventListener('click', ()=>{
+    if(lastVid.muted){
+      lastVid.muted=false;
+      bgAudio.pause();
+      muteBtn.textContent='🔊';
+    } else {
+      lastVid.muted=true;
+      bgAudio.play().catch(()=>{});
+      muteBtn.textContent='🔇';
+    }
+  });
+
+  // Audio upload feature
+  const playOriginalBtn = document.getElementById('playOriginal');
+  const pausePlayBtn = document.getElementById('pausePlay');
+  const uploadSong = document.getElementById('uploadSong');
+  const uploadedSongs = document.getElementById('uploadedSongs');
+  let currentAudio = bgAudio;
+  let userSongs = [];
+
+  playOriginalBtn.addEventListener('click', ()=>{
+    if(currentAudio!==bgAudio){currentAudio.pause();}
+    currentAudio = bgAudio;
+    currentAudio.play().catch(()=>{});
+  });
+
+  pausePlayBtn.addEventListener('click', ()=>{
+    if(currentAudio.paused){currentAudio.play().catch(()=>{});}
+    else{currentAudio.pause();}
+  });
+
+  uploadSong.addEventListener('change',(e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const url = URL.createObjectURL(file);
+    const audio = new Audio(url);
+    audio.loop=true;
+    userSongs.push({name:file.name, audio});
+    const option = document.createElement('option');
+    option.value=userSongs.length-1;
+    option.textContent=file.name;
+    uploadedSongs.appendChild(option);
+    uploadedSongs.style.display='inline-block';
+  });
+
+  uploadedSongs.addEventListener('change',(e)=>{
+    if(currentAudio!==bgAudio){currentAudio.pause();}
+    currentAudio = userSongs[e.target.value].audio;
+    currentAudio.play().catch(()=>{});
+  });
+
+})();
+</script>
+</body>
+  </html>  100% { transform: scale(1); }
 }
 
 /* Pop-in main content & gentle float */
